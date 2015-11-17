@@ -12,6 +12,7 @@ Hashed passwords can also be generated at https://www.pwdhash.com/
 ## roadmap
 
 * make it restartless (restructure code)
+* update to build with jpm (currently built by just zipping into an XPI file)
 
 ## feature brainstorm
 

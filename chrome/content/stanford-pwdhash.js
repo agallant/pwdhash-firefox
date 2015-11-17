@@ -146,7 +146,7 @@ SPH_PasswordKeyMonitor.prototype = {
     }
 
     var element = document.commandDispatcher.focusedElement;
-    if (element) { 
+    if (element) {
       if (element.nodeName == "INPUT" && element.type == "password") {
         if (element.value + lastChar == SPH_kPasswordPrefix) {
           return new SPH_PasswordProtector(element, this);
@@ -185,6 +185,7 @@ function SPH_PasswordProtector(field, monitor) {
   this.nextAvail = this.firstAvail;
   this.field = field;
   this.field.setAttribute("secure","yes");
+  this.field.setAttribute("style", "background-color: #cccc00");
   window.addEventListener("keydown", this, true);
   window.addEventListener("keyup", this, true);
   window.addEventListener("keypress", this, true);
@@ -317,7 +318,7 @@ SPH_PasswordProtector.prototype = {
       // Enforce minimum size requirement
       if(password.length < SPH_kMinimumPasswordSize) {
         var msg = SPH_strings.getString("pwdhash.shortpasswordwarn");
-        SPH_controller.warnUser(msg);  
+        SPH_controller.warnUser(msg);
         field.value = '';
         return;
       }
